@@ -7,15 +7,21 @@ import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
+@DisplayName("CheckNameValidation")
 @RunWith(JUnitParamsRunner.class)
 public class AccountClassTest {
 
     @Test
-    @DisplayName("CheckNameValidation")
-    @Description ("This test checks all validation causes for user name")
     @Parameters({"\"Kek Cheburek\", true","\"KekCheburek\",false","\"Kek Cheburek \",false","\" Kek Cheburek\",false","\" Kek Cheburek \",false"})
     public void checkUserName(String name, Boolean expected){
         Account account = new Account(name);
         assertEquals(expected, account.checkNameToEmboss());
+    }
+
+    @Test
+    @DisplayName("SampleDisplayName")
+    @Description ("Just sample test case to check allure displayName and Description")
+    public void sample(){
+        assertEquals(true, true);
     }
 }
